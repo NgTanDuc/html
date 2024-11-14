@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: gray;
+    border-radius: 0px 0px 10px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar img{
+    width: 40px;
+}
+
+.logo{
+    transition: .5s ease-in-out;
+}
+
+.logo:hover{
+    filter:drop-shadow(0 0 .7rem red);
+}

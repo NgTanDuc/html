@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Food</title>
+</head>
+<body>
+    <form id="foodForm">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="text" name="description" placeholder="Description" required />
+        <input type="number" name="price" placeholder="Price" required />
+        <input type="file" name="image" required />
+        <button type="button" onclick="uploadproduct()">Upload</button>
+    </form>
+
+    <script>
+        const uploadproduct = async () => {
+            const formData = new FormData();
+            
+            // Lấy giá trị từ các input
+            const name = document.querySelector('input[name="name"]').value;
+            const description = document.querySelector('input[name="description"]').value;
+            const price = document.querySelector('input[name="price"]').value;
+        
+            // Thêm các giá trị vào FormData
+            formData.append('name', name);
+            formData.append('description', description);
+            formData.append('price', price);
+            
+            // Lấy file từ input
+            const fileInput = document.querySelector('input[type="file"]'); 
+            const file = fileInput.files[0];
+            formData.append('image', file);
+        
+            try {
+                const response = await fetch('http://localhost:4000/api/product/add', {
+                    method: 'POST',
+                    body: formData,
+                });
+        
+                const result = await response.json();
+                console.log(result);
+            } catch (error) {
+                console.error('Error uploading product:', error);
+            }
+        };
+        
+    </script>
+</body>
+</html>

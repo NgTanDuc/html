@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Form</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+
+
+    function convertImageToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+    }
+
+
+    const fileInput = document.getElementsByClassName('image_input')
+    fileInput.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        try {
+          const base64String = await convertImageToBase64(file);
+          console.log(base64String);
+          // Gửi chuỗi base64 đến server hoặc lưu vào database
+        } catch (error) {
+          console.error('Lỗi khi chuyển đổi hình ảnh:', error);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

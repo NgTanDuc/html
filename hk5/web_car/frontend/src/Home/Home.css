@@ -1,0 +1,179 @@
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    background-color: #0b0C10;
+    width: 100%;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar img {
+    width: 30px;
+}
+
+.navbar h2 {
+    font-size: 22pt;
+    color: #fff;
+}
+
+
+/* Content */
+
+.content {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.list-table-format {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    position: relative;
+
+}
+
+.list-table-format::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid white;
+    border-radius: 10px;
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+
+.list-table-content {
+    width: 70%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item {
+    margin-bottom: 10px;
+    /* Thay đổi giá trị này để điều chỉnh khoảng cách */
+}
+
+.item_price {
+    margin-top: 10px;
+}
+
+.list-table-format h2 {
+    color: rgb(255, 0, 0);
+    opacity: 0;
+
+}
+
+.list-table-format p {
+    color: white;
+    opacity: 0;
+    text-align: center;
+
+}
+
+.list-table-format .item_price {
+    color: white;
+    opacity: 0;
+    font-weight: bold;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.list-table-format:hover img {
+    filter:
+        grayscale(1) brightness(.4);
+}
+
+.list-table-format:hover::after {
+    opacity: 1;
+    inset: 20px;
+}
+
+.list-table-format:hover h2 {
+    opacity: 1;
+}
+
+.list-table-format:hover p {
+    opacity: 1;
+}
+
+/* phần đuôi */
+.footer {
+    color: #d9d9d9;
+    background-color: #323232;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 8vw;
+    padding-top: 80px;
+    margin-top: 100px;
+}
+
+.footer-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+}
+
+.footer-content-left,
+.footer-content-right,
+.footer-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.footer-content-left li,
+.footer-content-right li,
+.footer-content-center li {
+    list-style: None;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.footer-content-left img {
+    width: 100px;
+}
+
+.footer-content-right h2,
+.footer-content-center h2 {
+    color: white;
+}
+
+.footer-social-icons img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.footer hr {
+    width: 100%;
+    height: 2px;
+    margin: 20px 0px;
+    background-color: gray;
+    border: None;
+}
